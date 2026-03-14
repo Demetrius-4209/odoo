@@ -24,16 +24,24 @@ def register(data: RegisterRequest, db: Session = Depends(get_db)):
     if db.query(User).filter(User.email == data.email).first():
         raise HTTPException(status_code=400, detail="Email already registered")
     user = User(
-        id=str(uuid.uuid4()),
+        id=uuid.uuid4(),
         name=data.name,
         email=data.email,
-        hashed_password = hash_password(data.password)
+        hashed_password=hash_password(data.password)
     )
     db.add(user)
     db.commit()
     db.refresh(user)
     token = create_access_token({"sub": str(user.id)})
-    return {"access_token": token, "token_type": "bearer", "user": {"id": str(user.id), "name": user.name, "email": user.email}}
+    return {
+        "access_token": token,
+        "token_type": "bearer",
+        "user": {
+            "id": str(user.id),
+            "name": user.name,
+            "email": user.email
+        }
+    }
 
 @router.post("/login", response_model=TokenResponse)
 def login(form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
@@ -41,7 +49,15 @@ def login(form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get
     if not user or not verify_password(form.password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid credentials")
     token = create_access_token({"sub": str(user.id)})
-    return {"access_token": token, "token_type": "bearer", "user": {"id": str(user.id), "name": user.name, "email": user.email}}
+    return {
+        "access_token": token,
+        "token_type": "bearer",
+        "user": {
+            "id": str(user.id),
+            "name": user.name,
+            "email": user.email
+        }
+    }
 
 @router.get("/me")
 def get_me(db: Session = Depends(get_db), token: str = ""):
