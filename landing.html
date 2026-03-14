@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#353534",
+              "on-secondary": "#313030",
+              "inverse-primary": "#006875",
+              "surface-container-low": "#1c1b1b",
+              "on-tertiary-container": "#3a5e6a",
+              "error": "#ffb4ab",
+              "tertiary-fixed": "#c3e8f7",
+              "on-tertiary-fixed-variant": "#274c57",
+              "surface-variant": "#353534",
+              "primary-fixed": "#9cf0ff",
+              "on-secondary-fixed-variant": "#474746",
+              "surface-container": "#201f1f",
+              "secondary-fixed": "#e5e2e1",
+              "secondary-fixed-dim": "#c8c6c5",
+              "on-error": "#690005",
+              "secondary": "#c8c6c5",
+              "on-tertiary": "#0d3540",
+              "surface-container-lowest": "#0e0e0e",
+              "background": "#131313",
+              "on-secondary-fixed": "#1c1b1b",
+              "on-primary-fixed-variant": "#004f58",
+              "on-primary-fixed": "#001f24",
+              "on-primary-container": "#00626e",
+              "on-background": "#e5e2e1",
+              "outline-variant": "#3b494c",
+              "on-surface-variant": "#bac9cc",
+              "tertiary-container": "#b1d6e4",
+              "primary-fixed-dim": "#00daf3",
+              "on-primary": "#00363d",
+              "surface-container-high": "#2a2a2a",
+              "primary-container": "#00e5ff",
+              "surface-tint": "#00daf3",
+              "primary": "#c3f5ff",
+              "inverse-surface": "#e5e2e1",
+              "tertiary": "#d0f2ff",
+              "tertiary-fixed-dim": "#a7ccda",
+              "on-error-container": "#ffdad6",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#474746",
+              "error-container": "#93000a",
+              "on-tertiary-fixed": "#001f28",
+              "outline": "#849396",
+              "on-surface": "#e5e2e1",
+              "surface-bright": "#3a3939"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(59, 73, 76, 0.15);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #c3f5ff 0%, #00e5ff 100%);
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 30%, rgba(0, 218, 243, 0.08) 0%, transparent 70%);
+        }
+        .status-spark {
+            box-shadow: 0 0 10px #00daf3;
+        }
+        .ghost-border {
+            outline: 1px solid rgba(59, 73, 76, 0.25);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center py-6 px-8">
+<div class="max-w-7xl w-full flex items-center justify-between glass-card px-8 py-3 rounded-full">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-xl" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<span class="font-headline font-bold text-xl tracking-tight text-on-surface">CoreInventory</span>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Features</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Pricing</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium" href="#">Docs</a>
+</div>
+<div>
+<button class="primary-gradient text-on-primary-fixed px-6 py-2 rounded-md font-bold text-sm hover:opacity-90 transition-all shadow-lg shadow-primary-container/20">
+                Get Started
+            </button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="relative pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center px-6 overflow-hidden hero-glow">
+<!-- Background Light Leakage -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-surface-tint opacity-[0.03] blur-[120px] rounded-full pointer-events-none"></div>
+<!-- Spline Space (Empty for Robot) -->
+<div class="w-full h-[400px] flex items-center justify-center pointer-events-none">
+<!-- This area is reserved for the 3D robot -->
+<div class="relative w-64 h-64 border border-dashed border-outline-variant/20 rounded-full flex items-center justify-center">
+<div class="absolute inset-0 bg-primary opacity-[0.02] rounded-full animate-pulse"></div>
+</div>
+</div>
+<!-- Hero Text Content -->
+<div class="max-w-4xl text-center z-10 mt-32">
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-surface tracking-tighter leading-tight mb-6">
+                Control Your Inventory <br/>
+<span class="text-transparent bg-clip-text primary-gradient">in Real Time</span>
+</h1>
+<p class="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
+                Track products, warehouses, deliveries and stock movements from one powerful dashboard. The Obsidian Lens into your global supply chain.
+            </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="primary-gradient text-on-primary-fixed px-8 py-4 rounded-md font-bold text-base hover:shadow-[0_0_20px_rgba(0,218,243,0.3)] transition-all">
+                    Start Managing Inventory
+                </button>
+<button class="bg-surface-container-low border border-outline-variant/30 text-on-surface px-8 py-4 rounded-md font-bold text-base hover:bg-surface-container-high transition-all">
+                    View Dashboard
+                </button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-outline-variant/20 to-transparent"></div>
+</section>
+<!-- Features / Ecosystem Infrastructure Section -->
+<section class="py-32 px-8 relative">
+<div class="max-w-7xl mx-auto space-y-24">
+<div class="text-center space-y-4">
+<h2 class="font-headline text-4xl md:text-5xl font-bold tracking-tight">Ecosystem Infrastructure</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Seamlessly integrate every touchpoint of your supply chain into a single source of truth.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1: Products -->
+<div class="glass-card p-8 rounded-xl group hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary" data-icon="inventory">inventory</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-4">Products</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Manage all products and SKUs in one place. Intelligent categorisation and serial number tracking built-in.</p>
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                        View Module <span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<!-- Card 2: Warehouses -->
+<div class="glass-card p-8 rounded-xl group hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary" data-icon="warehouse">warehouse</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-4">Warehouses</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Track stock across multiple warehouse locations. Optimize picking routes and storage density automatically.</p>
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                        View Module <span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<!-- Card 3: Stock Movements -->
+<div class="glass-card p-8 rounded-xl group hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary" data-icon="swap_horiz">swap_horiz</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-4">Stock Movements</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Monitor receipts, deliveries, transfers and adjustments. Full audit trail of every unit moved.</p>
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                        View Module <span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<!-- Card 4: Live Dashboard -->
+<div class="glass-card p-8 rounded-xl group hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary" data-icon="monitoring" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-4">Live Dashboard</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">View real-time inventory insights. Predictive analytics for demand forecasting and low-stock alerts.</p>
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                        View Module <span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Predictive Intelligence Section -->
+<section class="py-32 px-8">
+<div class="max-w-7xl mx-auto glass-card rounded-2xl p-12 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<h2 class="font-headline text-4xl font-bold">Predictive Intelligence</h2>
+<p class="text-on-surface-variant leading-relaxed">Our Obsidian engine doesn't just track—it anticipates. Using historical data streams, CoreInventory forecasts stockouts before they happen.</p>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<div class="mt-1 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<span class="font-bold block">Smart Reordering</span>
+<span class="text-sm text-on-surface-variant">Automated PO generation when stock hits critical thresholds.</span>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<span class="font-bold block">Multi-Node Sync</span>
+<span class="text-sm text-on-surface-variant">Real-time synchronization across global warehouse networks.</span>
+</div>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10 shadow-2xl relative">
+<div class="flex justify-between items-center mb-8">
+<span class="text-xs font-bold tracking-widest uppercase text-on-surface-variant">Inventory Flow</span>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<div class="w-3 h-3 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="h-8 bg-surface-container-low rounded-full overflow-hidden w-full">
+<div class="h-full bg-primary w-[75%] rounded-full shadow-[0_0_10px_rgba(0,218,243,0.4)]"></div>
+</div>
+<div class="h-8 bg-surface-container-low rounded-full overflow-hidden w-full">
+<div class="h-full bg-primary w-[45%] rounded-full shadow-[0_0_10px_rgba(0,218,243,0.4)]"></div>
+</div>
+<div class="h-8 bg-surface-container-low rounded-full overflow-hidden w-full">
+<div class="h-full bg-primary w-[90%] rounded-full shadow-[0_0_10px_rgba(0,218,243,0.4)]"></div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-outline-variant/5 grid grid-cols-3 gap-4 text-center">
+<div>
+<div class="text-2xl font-bold font-headline">2.4k</div>
+<div class="text-[10px] uppercase text-on-surface-variant font-bold">Inbound</div>
+</div>
+<div>
+<div class="text-2xl font-bold font-headline text-primary">12.8k</div>
+<div class="text-[10px] uppercase text-on-surface-variant font-bold">Total Stock</div>
+</div>
+<div>
+<div class="text-2xl font-bold font-headline">1.1k</div>
+<div class="text-[10px] uppercase text-on-surface-variant font-bold">Outbound</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dashboard Preview Section -->
+<section class="py-32 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl font-bold mb-4">Enterprise-Grade Visibility</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">The mission control your warehouse team has been waiting for.</p>
+</div>
+<div class="glass-card rounded-[2rem] ghost-border p-4 md:p-8 shadow-2xl">
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden">
+<div class="border-b border-outline-variant/20 p-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-error/20"></div>
+<div class="w-3 h-3 rounded-full bg-primary/20"></div>
+<div class="w-3 h-3 rounded-full bg-on-surface-variant/20"></div>
+</div>
+<span class="text-sm font-mono text-on-surface-variant">terminal/inventory/stock-status</span>
+</div>
+<div class="flex gap-3">
+<div class="h-8 w-24 bg-surface-variant rounded-md"></div>
+<div class="h-8 w-8 bg-surface-variant rounded-md"></div>
+</div>
+</div>
+<div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 space-y-6">
+<div class="h-64 bg-surface-container-low rounded-xl relative overflow-hidden flex items-center justify-center">
+<div class="w-full px-10 flex items-end justify-between gap-2 h-32">
+<div class="w-full bg-primary/20 h-1/2 rounded-t-sm"></div>
+<div class="w-full bg-primary/40 h-2/3 rounded-t-sm"></div>
+<div class="w-full bg-primary/10 h-1/3 rounded-t-sm"></div>
+<div class="w-full bg-primary h-full rounded-t-sm shadow-[0_0_15px_rgba(0,218,243,0.3)]"></div>
+<div class="w-full bg-primary/60 h-4/5 rounded-t-sm"></div>
+<div class="w-full bg-primary/30 h-1/2 rounded-t-sm"></div>
+</div>
+<span class="absolute top-4 left-6 text-xs font-mono text-primary">LIVE_STOCK_LEVELS.PY</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-4 bg-surface-container-high rounded-lg">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded bg-surface-variant"></div>
+<div>
+<div class="h-4 w-32 bg-on-surface-variant/20 rounded mb-1"></div>
+<div class="h-3 w-20 bg-on-surface-variant/10 rounded"></div>
+</div>
+</div>
+<span class="text-primary font-mono text-sm">+244 units</span>
+</div>
+<div class="flex justify-between items-center p-4 bg-surface-container-high rounded-lg">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded bg-surface-variant"></div>
+<div>
+<div class="h-4 w-40 bg-on-surface-variant/20 rounded mb-1"></div>
+<div class="h-3 w-16 bg-on-surface-variant/10 rounded"></div>
+</div>
+</div>
+<span class="text-error font-mono text-sm">-12 units</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6">
+<h4 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-6">Quick Stats</h4>
+<div class="space-y-8">
+<div>
+<p class="text-xs text-on-surface-variant mb-1">Active Shipments</p>
+<p class="text-3xl font-headline font-bold text-primary">1,284</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant mb-1">Avg. Fulfillment</p>
+<p class="text-3xl font-headline font-bold">14.2m</p>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant mb-1">Warehouse Capacity</p>
+<div class="w-full h-2 bg-surface-variant rounded-full mt-2 overflow-hidden">
+<div class="w-3/4 h-full primary-gradient"></div>
+</div>
+<p class="text-right text-[10px] mt-1 text-on-surface-variant">75.4% utilized</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="py-32 px-6">
+<div class="max-w-5xl mx-auto glass-card rounded-[2.5rem] ghost-border p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary-container/10 blur-[100px] rounded-full"></div>
+<h2 class="font-headline text-4xl md:text-5xl font-bold mb-6">Start Managing Inventory Smarter</h2>
+<p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">Join over 1,200 enterprises streamlining their logistics with CoreInventory today.</p>
+<button class="primary-gradient text-on-primary px-10 py-5 rounded-2xl font-extrabold text-lg hover:brightness-110 shadow-[0_10px_30px_rgba(0,218,243,0.3)] transition-all">
+                Create Free Account
+            </button>
+<p class="mt-6 text-xs text-on-surface-variant font-medium">No credit card required • 14-day free trial • Cancel anytime</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="py-20 px-8 border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<span class="font-headline font-bold text-lg">CoreInventory</span>
+</div>
+<p class="text-on-surface-variant text-sm">© 2024 CoreInventory Inc. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-12">
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex gap-6">
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
