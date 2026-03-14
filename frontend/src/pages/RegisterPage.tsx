@@ -19,8 +19,9 @@ export default function RegisterPage() {
       await register(name, email, password)
       toast.success('Account created!')
       navigate('/dashboard')
-    } catch {
-      toast.error('Registration failed. Email may already be in use.')
+    } catch (err: any) {
+      const message = err?.response?.data?.detail || 'Registration failed. Please try again.'
+      toast.error(message)
     } finally {
       setLoading(false)
     }
