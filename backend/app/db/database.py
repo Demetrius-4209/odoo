@@ -3,7 +3,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from app.core.config import settings
 
-db_url = settings.DATABASE_URL.replace("postgresql+psycopg://", "postgresql+psycopg2://").replace("postgresql://", "postgresql+psycopg2://")
+# Ensure correct driver prefix for psycopg3
+db_url = settings.DATABASE_URL
+if db_url.startswith("postgresql://"):
+    db_url = db_url.replace("postgresql://", "postgresql+psycopg://", 1)
+elif db_url.startswith("postgresql+psycopg2://"):
+    db_url = db_url.replace("postgresql+psycopg2://", "postgresql+psycopg://", 1)
 
 engine = create_engine(
     db_url,
